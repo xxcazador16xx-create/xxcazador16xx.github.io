@@ -274,15 +274,11 @@
         </p>
         
         <button class="boton-especial" id="botonEspecial">
-            🔊 Reproducir Música 💕
+            🔗 Ir a Página Especial 💕
         </button>
     </div>
 
     <script>
-        // Variables para el reproductor de audio
-        let audioPlayer = null;
-        let isPlaying = false;
-
         // Función para crear partículas flotantes
         function crearParticulas() {
             const particulasContainer = document.getElementById('particulas');
@@ -344,103 +340,53 @@
             }, 500);
         });
 
-        // REPRODUCTOR MP3 - BOTÓN PRINCIPAL
+        // REDIRECCIÓN - BOTÓN PRINCIPAL (REEMPLAZA EL REPRODUCTOR MP3)
         document.getElementById('botonEspecial').addEventListener('click', function(event) {
             event.preventDefault();
             
-            if (!audioPlayer) {
-                // Crear elemento de audio
-                audioPlayer = new Audio();
-                audioPlayer.src = 'si-me-lo-pides.mp3';
-                audioPlayer.loop = true;
-                audioPlayer.volume = 0.7;
-                audioPlayer.preload = 'auto';
-                
-                // Eventos del audio con más detalles
-                audioPlayer.addEventListener('loadstart', () => {
-                    console.log('🎵 Iniciando carga de audio...');
-                    this.textContent = '⏳ Cargando música...';
-                });
-                
-                audioPlayer.addEventListener('canplay', () => {
-                    console.log('✅ Audio listo para reproducir');
-                });
-                
-                audioPlayer.addEventListener('loadeddata', () => {
-                    console.log('📁 Datos del audio cargados');
-                });
-                
-                audioPlayer.addEventListener('error', (e) => {
-                    console.error('❌ Error cargando audio:', e);
-                    console.error('❌ Código de error:', audioPlayer.error?.code);
-                    console.error('❌ Mensaje:', audioPlayer.error?.message);
-                    this.textContent = `❌ No se encontró archivo`;
-                    this.style.background = 'linear-gradient(45deg, #e74c3c, #c0392b)';
-                    
-                    setTimeout(() => {
-                        alert(`No se pudo cargar el archivo de audio.\n\n✅ Verificar:\n• El archivo "si-me-lo-pides.mp3" está en la misma carpeta\n• El nombre es exacto (sin espacios extra)\n• El formato es compatible (.mp3, .wav, .m4a)`);
-                        this.textContent = '📁 Revisar archivo MP3';
-                    }, 1000);
-                });
-            }
+            // Cambiar la URL aquí por la página que desees
+            const urlDestino = 'https://www.youtube.com/watch?v=T11CPMRCYXQ&list=RDT11CPMRCYXQ&start_radio=1&ab_channel=Samde'; // CAMBIA ESTA URL
             
-            if (!isPlaying) {
-                // Reproducir música
-                this.textContent = '▶️ Iniciando...';
-                this.style.background = 'linear-gradient(45deg, #3498db, #2980b9)';
-                
-                audioPlayer.play().then(() => {
-                    console.log('🎶 Reproduciendo correctamente');
-                    isPlaying = true;
-                    this.textContent = '⏸️ Pausar Música';
-                    this.style.background = 'linear-gradient(45deg, #27ae60, #2ecc71)';
-                }).catch((error) => {
-                    console.error('🚫 Error al reproducir:', error.message);
-                    
-                    if (error.name === 'NotAllowedError') {
-                        this.textContent = '🔓 Click para permitir';
-                        this.style.background = 'linear-gradient(45deg, #f39c12, #e67e22)';
-                    } else {
-                        this.textContent = '❌ Error reproduciendo';
-                        this.style.background = 'linear-gradient(45deg, #e74c3c, #c0392b)';
-                    }
-                });
-                
-            } else {
-                // Pausar música
-                audioPlayer.pause();
-                isPlaying = false;
-                this.textContent = '▶️ Reproducir Música 💕';
-                this.style.background = 'linear-gradient(45deg, #ff1744, #ff6b9d)';
-                console.log('⏸️ Música pausada');
-            }
+            // Efecto visual antes de redirigir
+            this.textContent = '✨ Redirigiendo...';
+            this.style.background = 'linear-gradient(45deg, #3498db, #2980b9)';
             
-            // Explosión de corazones musicales
+            // Explosión de corazones
             const container = document.querySelector('.carta-container');
-            const emojisMusica = ['🎵', '🎶', '💖', '🎼', '💕'];
+            const emojisEspeciales = ['💖', '✨', '🎈', '🌟', '💕'];
             
             for (let i = 0; i < 8; i++) {
                 setTimeout(() => {
-                    const nota = document.createElement('div');
-                    nota.textContent = emojisMusica[Math.floor(Math.random() * emojisMusica.length)];
-                    nota.style.position = 'absolute';
-                    nota.style.left = '50%';
-                    nota.style.top = '80%';
-                    nota.style.fontSize = '20px';
-                    nota.style.pointerEvents = 'none';
-                    nota.style.animation = 'explotar 1.5s ease-out forwards';
-                    nota.style.transform = `translate(-50%, -50%) rotate(${Math.random() * 360}deg)`;
-                    nota.style.color = '#27ae60';
+                    const efecto = document.createElement('div');
+                    efecto.textContent = emojisEspeciales[Math.floor(Math.random() * emojisEspeciales.length)];
+                    efecto.style.position = 'absolute';
+                    efecto.style.left = '50%';
+                    efecto.style.top = '80%';
+                    efecto.style.fontSize = '20px';
+                    efecto.style.pointerEvents = 'none';
+                    efecto.style.animation = 'explotar 1.5s ease-out forwards';
+                    efecto.style.transform = `translate(-50%, -50%) rotate(${Math.random() * 360}deg)`;
+                    efecto.style.color = '#3498db';
                     
-                    container.appendChild(nota);
+                    container.appendChild(efecto);
                     
                     setTimeout(() => {
-                        if (container.contains(nota)) {
-                            container.removeChild(nota);
+                        if (container.contains(efecto)) {
+                            container.removeChild(efecto);
                         }
                     }, 1500);
                 }, i * 100);
             }
+            
+            // Ir a YouTube después de 1.5 segundos
+            setTimeout(() => {
+                window.open(urlDestino, '_blank'); // Abre YouTube en nueva pestaña
+                // O usar: window.location.href = urlDestino; // Abre en la misma pestaña
+                
+                // Resetear botón
+                this.textContent = '🎵 Ver Video Musical 💕';
+                this.style.background = 'linear-gradient(45deg, #ff1744, #ff6b9d)';
+            }, 1500);
         });
 
         // Iniciar partículas
@@ -490,4 +436,3 @@
         });
     </script>
 </body>
-</html>

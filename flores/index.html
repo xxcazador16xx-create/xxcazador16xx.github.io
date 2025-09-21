@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz 21 de Septiembre Romi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #b19cd9, #9d7cc9, #8f6bb8);
+            font-family: 'Georgia', serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+        }
+
+        .title {
+            font-size: 3.5em;
+            color: #fff;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        .subtitle {
+            font-size: 2em;
+            color: #f9f9f9;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .date {
+            font-size: 1.8em;
+            color: #ffe066;
+            font-weight: bold;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .btn-container {
+            margin-top: 30px;
+        }
+
+        .surprise-btn {
+            background: linear-gradient(45deg, #ffed4a, #f9ca24);
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.3em;
+            color: #333;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .surprise-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #f9ca24, #ffed4a);
+        }
+
+        .surprise-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .sunflower {
+            position: absolute;
+            font-size: 4em;
+            animation: float 6s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .sunflower:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .sunflower:nth-child(2) {
+            top: 20%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .sunflower:nth-child(3) {
+            bottom: 20%;
+            left: 8%;
+            animation-delay: 2s;
+        }
+
+        .sunflower:nth-child(4) {
+            bottom: 15%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        .sunflower:nth-child(5) {
+            top: 50%;
+            left: 5%;
+            animation-delay: 4s;
+        }
+
+        .sunflower:nth-child(6) {
+            top: 60%;
+            right: 3%;
+            animation-delay: 5s;
+        }
+
+        .surprise-image {
+            display: none;
+            max-width: 90%;
+            max-height: 400px;
+            margin-top: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .heart {
+            color: #ff6b6b;
+            font-size: 1.2em;
+            margin: 0 5px;
+            animation: heartbeat 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+            50% {
+                transform: translateY(-40px) rotate(0deg);
+            }
+            75% {
+                transform: translateY(-20px) rotate(-5deg);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5em;
+            }
+            
+            .subtitle {
+                font-size: 1.5em;
+            }
+            
+            .date {
+                font-size: 1.4em;
+            }
+            
+            .sunflower {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sunflower">🌻</div>
+    <div class="sunflower">🌻</div>
+    <div class="sunflower">🌻</div>
+    <div class="sunflower">🌻</div>
+    <div class="sunflower">🌻</div>
+    <div class="sunflower">🌻</div>
+
+    <div class="container">
+        <h1 class="title">¡Feliz dia mi amor!</h1>
+        <h2 class="subtitle">Mi querida <span class="heart">♥</span> Romi te amo <span class="heart">♥</span></h2>
+        <div class="date">Hoy es un dia que me gustaria pasar contigo, y esto lo viviremos a futuro</div>
+
+        
+        <div class="btn-container">
+            <button class="surprise-btn" onclick="goToLink()">¡Pulsa aquí!</button>
+        </div>
+    </div>
+
+    <script>
+        // CAMBIA AQUÍ EL LINK A DONDE QUIERES QUE VAYA
+        function goToLink() {
+            window.open('https://www.youtube.com/watch?v=zGD0f69DqJU&list=RDzGD0f69DqJU&start_radio=1', '_blank');
+            // O usa window.location.href = 'https://www.ejemplo.com'; si quieres que se abra en la misma ventana
+        }
+
+        function createConfetti() {
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.innerHTML = '🌻';
+                    confetti.style.position = 'fixed';
+                    confetti.style.top = '-50px';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.fontSize = '2em';
+                    confetti.style.zIndex = '1000';
+                    confetti.style.animation = 'fall 3s linear forwards';
+                    document.body.appendChild(confetti);
+
+                    // Remover después de la animación
+                    setTimeout(() => {
+                        if (confetti.parentNode) {
+                            confetti.parentNode.removeChild(confetti);
+                        }
+                    }, 3000);
+                }, i * 100);
+            }
+        }
+
+        // Añadir animación de caída para el confeti
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Mensaje de consola especial
+        console.log('¡Feliz dia mi Romi! 🌻💜');
+    </script>
+</body>
+</html>
